@@ -17,4 +17,9 @@ https://code.visualstudio.com/
 
 Theme - NightOwl 
 
+## FONT
+https://github.com/tonsky/FiraCode
+Fira code
+
+
 
