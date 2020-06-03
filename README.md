@@ -17,6 +17,13 @@ https://www.iterm2.com/version3.html
 https://code.visualstudio.com/
 
 Theme - NightOwl 
+https://marketplace.visualstudio.com/items?itemName=sdras.night-owl
+
+## PHPSTORM
+https://www.jetbrains.com/phpstorm/download/#section=mac
+
+Theme - NightOwl
+https://plugins.jetbrains.com/plugin/10936-night-owl-theme/update/73432
 
 ## FONT
 https://github.com/tonsky/FiraCode
