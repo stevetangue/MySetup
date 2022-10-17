@@ -91,3 +91,17 @@ https://www.spectacleapp.com/
 Lightshot (screenshots markups)
 https://app.prntscr.com/en/index.html
 
+
+
+
+
+/**
+ * Convert an array of items to a map for fast lookups.
+ * Takes an array and a function which extracts a key to reference each T.
+ */
+export function toMap<T, K extends string | number>(
+  arr: T[],
+  fun: (x: T) => K
+): Record<K, T> {
+  return arr.reduce((a, c) => ({ ...a, [fun(c)]: c }), {} as Record<K, T>);
+}
