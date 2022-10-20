@@ -105,3 +105,42 @@ export function toMap<T, K extends string | number>(
 ): Record<K, T> {
   return arr.reduce((a, c) => ({ ...a, [fun(c)]: c }), {} as Record<K, T>);
 }
+
+
+
+
+
+
+/**
+ * Tool to encode or decode rgb values into java ints
+ * e.g. node color.js e ff0000 00ff6e
+ * or node color.js d 317856
+ */
+const action = process.argv[2];
+if (action === "e") {
+  const hex = process.argv.slice(3);
+  const ints = hex.map((h) => {
+    const ints = h.match(/.{1,2}/g).map((x) => parseInt(x, 16));
+    return getIntFromColor(...ints);
+  });
+  console.log(ints);
+} else if (action === "d") {
+  const ints = process.argv.slice(3);
+  const hexs = ints.map((int) => {
+    const i = +int;
+    const a = (i >> 24) & 0xff;
+    const r = (i >> 16) & 0xff;
+    const g = (i >> 8) & 0xff;
+    const b = i & 0xff;
+    return `${r},${g},${b},${a}`;
+  });
+  console.log(hexs);
+} else {
+  console.log("Invalid action");
+}
+function getIntFromColor(r, g, b) {
+  const red = (r << 16) & 0x00ff0000; //Shift red 16-bits and mask out other stuff
+  const green = (g << 8) & 0x0000ff00; //Shift Green 8-bits and mask out other stuff
+  const blue = b & 0x000000ff; //Mask out anything not blue.
+  return 0xff000000 | red | green | blue; //0xFF000000 for 100% Alpha. Bitwise OR everything together.
+}
