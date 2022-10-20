@@ -94,7 +94,7 @@ https://app.prntscr.com/en/index.html
 
 
 
-
+<pre>
 /**
  * Convert an array of items to a map for fast lookups.
  * Takes an array and a function which extracts a key to reference each T.
@@ -105,12 +105,12 @@ export function toMap<T, K extends string | number>(
 ): Record<K, T> {
   return arr.reduce((a, c) => ({ ...a, [fun(c)]: c }), {} as Record<K, T>);
 }
+</pre>
 
 
 
 
-
-
+<pre>
 /**
  * Tool to encode or decode rgb values into java ints
  * e.g. node color.js e ff0000 00ff6e
@@ -144,3 +144,4 @@ function getIntFromColor(r, g, b) {
   const blue = b & 0x000000ff; //Mask out anything not blue.
   return 0xff000000 | red | green | blue; //0xFF000000 for 100% Alpha. Bitwise OR everything together.
 }
+</pre>
